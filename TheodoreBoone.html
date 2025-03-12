@@ -1,0 +1,291 @@
+---
+title: "Theodore Boone: Legal Adventure"
+author: "Your Name"
+output: 
+  html_document:
+    self_contained: true
+---
+
+<!-- Inline CSS Styling -->
+<style>
+/* Global Styles */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animated Flowing Red Ribbon */
+.ribbon {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(270deg, #ff4b2b, #ff416c);
+  background-size: 400% 400%;
+  animation: flowRed 5s ease infinite;
+}
+@keyframes flowRed {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header & Navigation */
+.header {
+  background-color: #fff;
+  position: fixed;
+  top: 5px; /* just below the ribbon */
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.navbar .logo h2 {
+  margin: 0;
+  color: #d32f2f; /* Deep red accent */
+}
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: #d32f2f;
+}
+
+/* Hero Section */
+.hero {
+  background: url('https://via.placeholder.com/1200x500?text=Legal+Adventure') no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+  margin-top: 80px; /* account for fixed header */
+}
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .overlay h1 {
+  color: #fff;
+  font-size: 3.5em;
+  text-align: center;
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Page Sections (hidden by default) */
+.page-section {
+  padding: 60px 20px;
+  display: none;
+}
+.page-section h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #d32f2f;
+}
+.page-section p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+.page-section img {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  border: 5px solid #d32f2f;
+  border-radius: 5px;
+}
+
+/* Character Descriptions */
+.character-descriptions {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+.character-descriptions p {
+  margin: 15px 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Footer */
+.footer {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .hero .overlay h1 {
+    font-size: 2.5em;
+  }
+}
+</style>
+
+<!-- JavaScript for Section Navigation -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Show the home section by default
+  document.getElementById('home').style.display = 'block';
+
+  // Navigation click event: hide all sections, then show the target
+  document.querySelectorAll('.menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = this.getAttribute('data-target');
+      document.querySelectorAll('.page-section').forEach(function(section) {
+        section.style.display = 'none';
+      });
+      document.getElementById(target).style.display = 'block';
+    });
+  });
+});
+</script>
+
+<!-- Ribbon -->
+<div class="ribbon"></div>
+
+<!-- Header & Navigation -->
+<div class="header">
+  <div class="navbar">
+    <div class="logo">
+      <h2>Theodore Boone</h2>
+    </div>
+    <div class="menu">
+      <a href="#" data-target="home">Home</a>
+      <a href="#" data-target="about">About</a>
+      <a href="#" data-target="characters">Characters</a>
+      <a href="#" data-target="reviews">Reviews</a>
+      <a href="#" data-target="media">Media</a>
+      <a href="#" data-target="purchase">Purchase</a>
+      <a href="#" data-target="contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Home Section (Default) -->
+<div id="home" class="page-section" style="display:block;">
+  <div class="hero">
+    <div class="overlay">
+      <h1>Dive into the Legal Adventure</h1>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<div id="about" class="page-section">
+  <h2>About Theodore Boone</h2>
+  <!-- Using the provided image -->
+  <img src="https://hachette.imgix.net/books/9781444714555.jpg?auto=compress,format" alt="Theodore Boone Book Cover">
+  <p>
+    *Theodore Boone* by John Grisham is a riveting story of a young legal prodigy thrust into a world of courtroom drama and moral dilemmas. Blending legal intrigue with the challenges of growing up, the novel captures the thrill of justice and the complexities of youth.
+  </p>
+</div>
+
+<!-- Characters Section -->
+<div id="characters" class="page-section">
+  <h2>Meet the Characters</h2>
+  <!-- Using the provided image for characters -->
+  <img src="https://i0.wp.com/www.kimwerker.com/wp-content/uploads/2010/06/theodore-boone-cover.jpg" alt="Theodore Boone Cover">
+  <div class="character-descriptions">
+    <p><strong>Theodore Boone:</strong> A thirteen-year old boy who dreams of being a lawyer one day. He loves Government class at his school with Mr. Mount, and he enjoys playing golf with his father.</p>
+    <p><strong>Marcella Boone:</strong> Theo's mother. She is a divorce lawyer working on her own firm, Boone & Boone along with Woods Boone.</p>
+    <p><strong>Woods Boone:</strong> Theo's father. He is a real estate lawyer who has always worked in his office. He was considered a slob at the Boone & Boone firm because of his untidiness in his office.</p>
+    <p><strong>April Finnemore:</strong> Theo's best friend. April had gone through some rough times. Both parents filed for divorce, and she had to choose which one she was going to live with. Most likely, she was going to stay with her mother, even though she didn't want to live with anyone in her family.</p>
+    <p><strong>Ike Boone:</strong> Theo's uncle. Ike was a former lawyer who started the Boone & Boone Firm. He was a tax lawyer who was disbarred after he did something wrong.</p>
+    <p><strong>Julio Pena:</strong> Theo's friend from school. He had been living in a homeless shelter with his family, from El Salvador. Theo helped him with his English and Algebra occasionally. His cousin was a witness in the murder trial that was ongoing, so he asked Theo for help and advice on what to do.</p>
+    <p><strong>Bobby Escobar:</strong> Julio's cousin. Bobby worked at the Waverly Creek golf course, where he witnessed a man go into the house of Mr. and Mrs. Duffy and coming back out 10 minutes later. Although he couldn’t go to the police because he was an illegal immigrant, he was worried he would be arrested and shipped back to El Salvador.</p>
+    <p><strong>Judge Gantry:</strong> A highly respected judge in Strattenburg and the presiding judge of the Duffy murder trial. He quite frankly adored Theo and will always do anything for him.</p>
+    <p><strong>Peter Duffy:</strong> A wealthy man who lived in Waverly Creek. He was the husband of Myra Duffy and was suspected of killing her. Duffy was big on golfing, and he would golf every day at the same time.</p>
+  </div>
+</div>
+
+<!-- Reviews Section -->
+<div id="reviews" class="page-section">
+  <h2>What Readers Are Saying</h2>
+  <!-- Updated image for reader reviews -->
+  <img src="https://th.bing.com/th/id/OIP.C5282AglqlviEXCU0oO9SAHaDt?rs=1&pid=ImgDetMain" alt="Reader Reviews">
+  <p>
+    "A masterful blend of legal intrigue and youthful adventure. Grisham has crafted a story that both educates and entertains." – Avid Reader<br>
+    "A fresh take on legal drama that appeals to both young readers and adults alike." – Book Critic
+  </p>
+</div>
+
+<!-- Media Section -->
+<div id="media" class="page-section">
+  <h2>Media Highlights</h2>
+  <img src="https://i.ytimg.com/vi/zlAgwZcCvWU/maxresdefault.jpg">
+  <p>
+    Explore exclusive video interviews with John Grisham, behind-the-scenes looks, and dynamic book trailers that bring the world of *Theodore Boone* to life.
+  </p>
+  <!-- Added video as a link and image -->
+  <p>
+   Watch the trailer! <iframe width="560" height="315" src="https://www.youtube.com/embed/Dk1Ishv_O5A?si=jfUrGPV21Ww5xTHI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </p>
+</div>
+
+<!-- Purchase Section -->
+<div id="purchase" class="page-section" style="text-align:center;">
+  <h2>Get Your Copy</h2>
+  <p>Experience the excitement of the courtroom and the thrill of the chase. Purchase your copy today!</p>
+  <a href="https://www.example.com" class="btn">Buy Now</a>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.53292788156!2d78.34501118487954!3d17.432573883128974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91582e0df991%3A0x743765c04e382308!2sCrossword%2C%20Inorbit%20Mall%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1741759437830!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="page-section" style="text-align:center;">
+  <h2>Contact Us</h2>
+  <p>
+    For inquiries or more information, please email us at <a href="mailto:info@example.com">info@example.com</a>.
+  </p>
+  <p>
+    Reach out to us on our facebook page. <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D122098427066801686%26id%3D61574050590593%26substory_index%3D685471690578111&show_text=true&width=500" width="500" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+ </p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  &copy; 2025 Theodore Boone. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+</div>
